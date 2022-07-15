@@ -16,6 +16,7 @@ public class GuildCreateListener implements Listener {
     public void onGuildCreate(GuildCreateEvent event){
         Player player = event.getPlayer();
         Guild guild = event.getGuild();
+        // TODO MESSAGES ETC AFTER CREATE
 
     }
 }

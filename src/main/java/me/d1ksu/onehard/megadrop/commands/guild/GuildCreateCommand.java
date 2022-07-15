@@ -44,8 +44,8 @@ public class GuildCreateCommand {
 
             Guild guild = new Guild(
                     commandArgs.getArgs(0)
-                    , commandArgs.getArgs(1)
-                    , player.getName(),
+                    ,commandArgs.getArgs(1)
+                    ,player.getName(),
                     new GuildArea(centerLocation, 50)); // TODO SIZE TO CONFIG
 
             profile.setGuild(guild.getTag());
