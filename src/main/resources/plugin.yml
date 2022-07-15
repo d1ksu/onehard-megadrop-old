@@ -1,0 +1,4 @@
+name: onehard-megadrop
+version: 1.16.5
+main: me.d1ksu.onehard.megadrop.BukkitMain
+author: d1ksu

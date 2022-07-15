@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id ("com.github.johnrengelman.shadow") version "7.1.2"
+}
+
+group 'org.onehard.megadrop'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url "https://papermc.io/repo/repository/maven-public/"}
+    maven { url "https://storehouse.okaeri.eu/repository/maven-public/" }
+
+}
+
+dependencies {
+    implementation 'org.mongodb:mongodb-driver-sync:4.4.1'
+    compileOnly"org.github.paperspigot:paperspigot-api:1.8.8-R0.1-SNAPSHOT"
+    implementation "dev.triumphteam:triumph-gui:3.1.2"
+    implementation 'eu.okaeri:okaeri-configs-serdes-bukkit:3.4.2'
+    implementation 'eu.okaeri:okaeri-configs-yaml-bukkit:3.4.2'
+
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    options.release.set(17)
+}
+
+shadowJar {
+    archiveFileName = "onehard-megadrop.jar"
+}
