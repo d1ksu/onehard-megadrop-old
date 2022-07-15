@@ -48,6 +48,7 @@ public class Guild {
         GuildMember founderGuildMember = new GuildMember(name, new HashSet<>());
         guildMembers.add(founderGuildMember);
 
+        this.validityTime = System.currentTimeMillis();
         this.createdAt = System.currentTimeMillis();
         this.guildArea = guildArea;
     }
@@ -114,5 +115,9 @@ public class Guild {
 
     public boolean isGuildMember(GuildMember guildMember){
         return this.guildMembers.contains(guildMember);
+    }
+
+    public void addValidityTime(long time){
+        this.validityTime += time;
     }
 }

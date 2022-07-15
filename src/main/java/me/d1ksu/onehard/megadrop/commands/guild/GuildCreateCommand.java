@@ -13,6 +13,8 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author d1ksu
  * @Date 15.07.2022
@@ -45,11 +47,11 @@ public class GuildCreateCommand {
             Guild guild = new Guild(
                     commandArgs.getArgs(0)
                     ,commandArgs.getArgs(1)
-                    ,player.getName(),
-                    new GuildArea(centerLocation, 50)); // TODO SIZE TO CONFIG
+                    ,player.getName()
+                    ,new GuildArea(centerLocation, 50)); // TODO SIZE TO CONFIG
 
+            guild.addValidityTime(TimeUnit.MILLISECONDS.toDays(1)); // TODO IN CONFIG
             profile.setGuild(guild.getTag());
-
             guildService.register(guild);
             Bukkit.getPluginManager().callEvent(new GuildCreateEvent(player, guild));
         });
