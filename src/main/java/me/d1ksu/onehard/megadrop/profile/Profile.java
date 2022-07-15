@@ -1,5 +1,7 @@
 package me.d1ksu.onehard.megadrop.profile;
 
+import me.d1ksu.onehard.megadrop.commands.api.GroupType;
+
 import java.util.UUID;
 
 /**
@@ -10,6 +12,8 @@ public class Profile {
 
     private final String name;
     private final UUID uuid;
+    private GroupType groupType;
+    private String guild;
     private long joinedAt;
     private long leftAt;
 
@@ -27,6 +31,18 @@ public class Profile {
         return uuid;
     }
 
+    public String getGuild() {
+        return guild;
+    }
+
+    public void setGuild(String guild) {
+        this.guild = guild;
+    }
+
+    public void removeGuild(){
+        this.guild = null;
+    }
+
     public long getJoinedAt() {
         return joinedAt;
     }
@@ -41,5 +57,9 @@ public class Profile {
 
     public long getLeftAt() {
         return leftAt;
+    }
+
+    public GroupType getGroupType() {
+        return groupType;
     }
 }

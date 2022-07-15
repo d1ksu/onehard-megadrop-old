@@ -1,6 +1,9 @@
 package me.d1ksu.onehard.megadrop.guild;
 
-import java.util.*;
+import org.bukkit.Location;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author d1ksu
@@ -8,80 +11,108 @@ import java.util.*;
  */
 public class Guild {
 
-    private String leader;
     private final String tag;
-    private String fullName;
-    private Set<String> members;
-    private Map<String, Long> invites;
-    private Set<String> allies;
-    private Set<String> alliesInvites;
-    private String serializedDepositInventory;
-    private boolean pvp;
-    private final long createdAt;
-    private long expireTime;
-    private long protectionTime;
+    private String name;
 
-    public Guild(String leader, String tag, String fullName){
-        this.leader = leader;
+    private String
+            founder,
+            leader;
+
+    private String
+            serializedBaseLocation,
+            serializedDeposit;
+
+    private long
+            createdAt,
+            validityTime,
+            protectionTime,
+            tntExplosionTime;
+
+    private boolean pvpGuild, pvpAlly;
+
+    private int lives, health, maxSlots;
+
+    private Set<GuildMember> guildMembers;
+    private GuildArea guildArea;
+
+
+    public Guild(final String tag, String name, String founder, GuildArea guildArea){
         this.tag = tag;
-        this.fullName = fullName;
-        this.members = new HashSet<>();
-        this.invites = new HashMap<>();
-        this.allies = new HashSet<>();
-        this.alliesInvites = new HashSet<>();
-        this.pvp = true;
-        this.serializedDepositInventory = null;
-        this.createdAt = System.currentTimeMillis();
-        this.protectionTime = 0L;
-        this.expireTime = 0L;
-        this.members.add(leader);
-    }
+        this.name = name;
+        this.founder = founder;
+        this.leader = founder;
 
-    public String getLeader() {
-        return leader;
+        this.serializedBaseLocation = null;
+
+        this.guildMembers = new HashSet<>();
+        GuildMember founderGuildMember = new GuildMember(name, new HashSet<>());
+        guildMembers.add(founderGuildMember);
+
+        this.createdAt = System.currentTimeMillis();
+        this.guildArea = guildArea;
     }
 
     public String getTag() {
         return tag;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
 
-    public Set<String> getMembers() {
-        return members;
+    public String getFounder() {
+        return founder;
     }
 
-    public Map<String, Long> getInvites() {
-        return invites;
-    }
-
-    public Set<String> getAllies() {
-        return allies;
-    }
-
-    public Set<String> getAlliesInvites() {
-        return alliesInvites;
-    }
-
-    public String getSerializedDepositInventory() {
-        return serializedDepositInventory;
-    }
-
-    public boolean isPvp() {
-        return pvp;
+    public String getLeader() {
+        return leader;
     }
 
     public long getCreatedAt() {
         return createdAt;
     }
 
-    public long getExpireTime() {
-        return expireTime;
+    public long getValidityTime() {
+        return validityTime;
     }
 
     public long getProtectionTime() {
         return protectionTime;
+    }
+
+    public long getTntExplosionTime() {
+        return tntExplosionTime;
+    }
+
+    public boolean isPvpGuild() {
+        return pvpGuild;
+    }
+
+    public boolean isPvpAlly() {
+        return pvpAlly;
+    }
+
+    public int getLives() {
+        return lives;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public GuildArea getGuildArea() {
+        return guildArea;
+    }
+
+    public int getMaxSlots() {
+        return maxSlots;
+    }
+
+    public Set<GuildMember> getGuildMembers() {
+        return guildMembers;
+    }
+
+    public boolean isGuildMember(GuildMember guildMember){
+        return this.guildMembers.contains(guildMember);
     }
 }
