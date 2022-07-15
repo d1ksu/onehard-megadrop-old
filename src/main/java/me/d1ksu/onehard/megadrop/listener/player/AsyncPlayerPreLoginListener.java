@@ -20,8 +20,12 @@ public class AsyncPlayerPreLoginListener implements Listener {
 
     @EventHandler
     public void onAsyncPlayerPreLogin(AsyncPlayerPreLoginEvent event){
-        Profile profile = profileService.findProfile(event.getUniqueId()).orElseGet(()
-                -> profileService.create(event.getName(), event.getUniqueId()));
+        Profile profile = profileService.findProfile(event.getUniqueId()).orElseGet(() ->
+                profileService.create(event.getName(), event.getUniqueId()));
         profile.setJoinedAt(System.currentTimeMillis());
+
+
     }
+
+
 }

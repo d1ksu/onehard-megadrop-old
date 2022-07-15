@@ -50,7 +50,7 @@ public class GuildCreateCommand {
                     ,player.getName()
                     ,new GuildArea(centerLocation, 50)); // TODO SIZE TO CONFIG
 
-            guild.addValidityTime(TimeUnit.MILLISECONDS.toDays(1)); // TODO IN CONFIG
+            guild.setValidityTime(System.currentTimeMillis() + TimeUnit.DAYS.toMillis(15)); // TODO IN CONFIG
             profile.setGuild(guild.getTag());
             guildService.register(guild);
             Bukkit.getPluginManager().callEvent(new GuildCreateEvent(player, guild));

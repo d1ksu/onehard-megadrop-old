@@ -1,7 +1,5 @@
 package me.d1ksu.onehard.megadrop.profile;
 
-import me.d1ksu.onehard.megadrop.BukkitMain;
-
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
@@ -13,27 +11,27 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class ProfileService {
 
-   private final Map<UUID, Profile> profileMap = new ConcurrentHashMap<>();
+    private final Map<UUID, Profile> profileMap = new ConcurrentHashMap<>();
 
-   public Profile create(String name, UUID uuid){
-      Profile profile = new Profile(name, uuid);
-      this.profileMap.put(uuid, profile);
-      return profile;
-   }
+    public Profile create(String name, UUID uuid) {
+        Profile profile = new Profile(name, uuid);
+        this.profileMap.put(uuid, profile);
+        return profile;
+    }
 
-   public Optional<Profile> findProfile(UUID uuid){
-      return Optional.ofNullable(this.profileMap.get(uuid));
-   }
+    public Optional<Profile> findProfile(UUID uuid) {
+        return Optional.ofNullable(this.profileMap.get(uuid));
+    }
 
-   public Optional<Profile> findProfile(String name){
-      return this.profileMap
-              .values()
-              .stream()
-              .filter(profile -> profile.getName().equalsIgnoreCase(name))
-              .findFirst();
-   }
+    public Optional<Profile> findProfile(String name) {
+        return this.profileMap
+                .values()
+                .stream()
+                .filter(profile -> profile.getName().equalsIgnoreCase(name))
+                .findFirst();
+    }
 
-   public Map<UUID, Profile> getProfileMap() {
-      return profileMap;
-   }
+    public Map<UUID, Profile> getProfileMap() {
+        return profileMap;
+    }
 }

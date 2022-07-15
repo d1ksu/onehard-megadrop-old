@@ -15,7 +15,7 @@ public class GuildCreateEvent extends Event {
     private static final HandlerList handlerList = new HandlerList();
 
     @Override
-    public @NotNull HandlerList getHandlers() {
+    public HandlerList getHandlers() {
         return handlerList;
     }
 

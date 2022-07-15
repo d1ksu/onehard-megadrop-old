@@ -10,7 +10,7 @@ import java.util.UUID;
 public class GuildMember {
 
     private final String name;
-    private Set<GuildPermissionType> permissions;
+    private final Set<GuildPermissionType> permissions;
 
     public GuildMember(final String name, final Set<GuildPermissionType> permissions){
         this.name = name;

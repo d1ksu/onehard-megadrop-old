@@ -24,9 +24,11 @@ dependencies {
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
-    options.release.set(17)
+    options.release.set(8)
 }
 
 shadowJar {
     archiveFileName = "onehard-megadrop.jar"
 }
+sourceCompatibility = JavaVersion.VERSION_1_9
+targetCompatibility = JavaVersion.VERSION_1_9

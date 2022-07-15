@@ -33,6 +33,7 @@ public class Guild {
     private int lives, health, maxSlots;
 
     private Set<GuildMember> guildMembers;
+    private Set<String> guildAllies;
     private GuildArea guildArea;
 
 
@@ -44,11 +45,12 @@ public class Guild {
 
         this.serializedBaseLocation = null;
 
+        this.guildAllies = new HashSet<>();
         this.guildMembers = new HashSet<>();
         GuildMember founderGuildMember = new GuildMember(name, new HashSet<>());
         guildMembers.add(founderGuildMember);
 
-        this.validityTime = System.currentTimeMillis();
+
         this.createdAt = System.currentTimeMillis();
         this.guildArea = guildArea;
     }
@@ -117,7 +119,11 @@ public class Guild {
         return this.guildMembers.contains(guildMember);
     }
 
-    public void addValidityTime(long time){
-        this.validityTime += time;
+    public void setValidityTime(long validityTime) {
+        this.validityTime = validityTime;
+    }
+
+    public boolean isAlly(String tag){
+        return this.guildAllies.contains(tag);
     }
 }

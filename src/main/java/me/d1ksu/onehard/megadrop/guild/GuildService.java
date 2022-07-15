@@ -1,5 +1,8 @@
 package me.d1ksu.onehard.megadrop.guild;
 
+import org.bukkit.Location;
+import org.bukkit.World;
+
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
@@ -21,7 +24,8 @@ public class GuildService {
     }
 
     public void unregister(Guild guild){
-        this.guildMap.remove(guild);
+        // TODO DELETE MEMBERS PROFILES GUILDS
+        this.guildMap.remove(guild.getTag(),guild);
     }
 
     public Optional<Guild> findGuildByGuildMember(GuildMember guildMember){
@@ -38,6 +42,16 @@ public class GuildService {
                 .stream()
                 .filter(guild -> guild.getName().equalsIgnoreCase(name))
                 .findFirst();
+    }
+
+    public Optional<Guild> findGuildInside(final Location targetLocation) {
+        for (final Guild guild : this.guildMap.values()) {
+            if (guild.getGuildArea().isInside(targetLocation)) {
+                return Optional.of(guild);
+            }
+        }
+
+        return Optional.empty();
     }
 
     public Map<String, Guild> getGuildMap() {
