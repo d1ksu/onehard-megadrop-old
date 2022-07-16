@@ -17,8 +17,8 @@ import me.d1ksu.onehard.megadrop.listener.guild.GuildCreateListener;
 import me.d1ksu.onehard.megadrop.listener.player.AsyncPlayerPreLoginListener;
 import me.d1ksu.onehard.megadrop.listener.player.PlayerQuitListener;
 import me.d1ksu.onehard.megadrop.profile.ProfileService;
-import me.d1ksu.onehard.megadrop.runnable.guild.GuildExpireRunnable;
-import me.d1ksu.onehard.megadrop.runnable.guild.GuildInformationRunnable;
+import me.d1ksu.onehard.megadrop.runnable.guild.GuildExpireCheckRunnable;
+import me.d1ksu.onehard.megadrop.runnable.guild.GuildBossBarInformationRunnable;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -91,9 +91,9 @@ public class BukkitMain extends JavaPlugin {
         };
         Arrays.stream(listeners).forEach(listener -> Bukkit.getPluginManager().registerEvents(listener, this));
 
-        GuildInformationRunnable guildInformationRunnable = new GuildInformationRunnable(guildService, profileService);
-        GuildExpireRunnable guildExpireRunnable = new GuildExpireRunnable(guildService);
-        Bukkit.getScheduler().runTaskTimer(this, guildExpireRunnable, 20L, 20L);
+        GuildBossBarInformationRunnable guildInformationRunnable = new GuildBossBarInformationRunnable(guildService, profileService);
+        GuildExpireCheckRunnable guildExpireCheckRunnable = new GuildExpireCheckRunnable(guildService);
+        Bukkit.getScheduler().runTaskTimer(this, guildExpireCheckRunnable, 20L, 20L);
         Bukkit.getScheduler().runTaskTimer(this, guildInformationRunnable,  0L, 20L);
     }
 

@@ -12,11 +12,11 @@ import java.util.stream.Collectors;
  * @author d1ksu
  * @Date 15.07.2022
  */
-public class GuildExpireRunnable implements Runnable {
+public class GuildExpireCheckRunnable implements Runnable {
 
     private final GuildService guildService;
 
-    public GuildExpireRunnable(GuildService guildService) {
+    public GuildExpireCheckRunnable(GuildService guildService) {
         this.guildService = guildService;
     }
 

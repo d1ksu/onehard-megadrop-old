@@ -6,8 +6,6 @@ import me.d1ksu.onehard.megadrop.profile.ProfileService;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.boss.BarColor;
-import org.bukkit.boss.BarFlag;
-import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Player;
 
@@ -15,13 +13,13 @@ import org.bukkit.entity.Player;
  * @author d1ksu
  * @Date 15.07.2022
  */
-public class GuildInformationRunnable implements Runnable {
+public class GuildBossBarInformationRunnable implements Runnable {
 
     private final GuildService guildService;
     private final ProfileService profileService;
 
 
-    public GuildInformationRunnable(GuildService guildService, ProfileService profileService) {
+    public GuildBossBarInformationRunnable(GuildService guildService, ProfileService profileService) {
         this.guildService = guildService;
         this.profileService = profileService;
     }
