@@ -1,4 +1,4 @@
-package me.d1ksu.onehard.megadrop.profile;
+package me.d1ksu.onehard.megadrop.entity.profile;
 
 import java.util.Map;
 import java.util.Optional;

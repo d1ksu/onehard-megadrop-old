@@ -1,6 +1,6 @@
 package me.d1ksu.onehard.megadrop.event;
 
-import me.d1ksu.onehard.megadrop.guild.Guild;
+import me.d1ksu.onehard.megadrop.entity.guild.Guild;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 

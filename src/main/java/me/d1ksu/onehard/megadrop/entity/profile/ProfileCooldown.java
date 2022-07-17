@@ -1,4 +1,4 @@
-package me.d1ksu.onehard.megadrop.profile;
+package me.d1ksu.onehard.megadrop.entity.profile;
 
 /**
  * @author d1ksu

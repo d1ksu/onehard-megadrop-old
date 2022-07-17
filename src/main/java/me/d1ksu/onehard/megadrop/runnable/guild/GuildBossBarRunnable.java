@@ -1,8 +1,8 @@
 package me.d1ksu.onehard.megadrop.runnable.guild;
 
-import me.d1ksu.onehard.megadrop.guild.Guild;
-import me.d1ksu.onehard.megadrop.guild.GuildService;
-import me.d1ksu.onehard.megadrop.profile.ProfileService;
+import me.d1ksu.onehard.megadrop.entity.guild.Guild;
+import me.d1ksu.onehard.megadrop.entity.guild.GuildService;
+import me.d1ksu.onehard.megadrop.entity.profile.ProfileService;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.boss.BarColor;
@@ -13,13 +13,13 @@ import org.bukkit.entity.Player;
  * @author d1ksu
  * @Date 15.07.2022
  */
-public class GuildBossBarInformationRunnable implements Runnable {
+public class GuildBossBarRunnable implements Runnable {
 
     private final GuildService guildService;
     private final ProfileService profileService;
 
 
-    public GuildBossBarInformationRunnable(GuildService guildService, ProfileService profileService) {
+    public GuildBossBarRunnable(GuildService guildService, ProfileService profileService) {
         this.guildService = guildService;
         this.profileService = profileService;
     }
@@ -43,7 +43,12 @@ public class GuildBossBarInformationRunnable implements Runnable {
                         bossBar.setColor(BarColor.RED);
                         bossBar.setTitle("Teren wrogiej gildii: " + guild.getTag());
                     }
-                    bossBar.setProgress(location.distance(guild.getGuildArea().getCenterLocation()) / (guild.getGuildArea().getSize() / 2));
+                    float progress = (float) (location.distance(guild.getGuildArea().getCenterLocation()) / (
+                            guild.getGuildArea().getSize() / 2));
+                    if(progress >= 1){
+                        progress = 1;
+                    }
+                    bossBar.setProgress(progress);
                     bossBar.addPlayer(player);
                 } else {
                     bossBar.removePlayer(player);

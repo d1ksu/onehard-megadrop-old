@@ -2,7 +2,7 @@ package me.d1ksu.onehard.megadrop.commands.api;
 
 import me.d1ksu.onehard.megadrop.BukkitMain;
 import me.d1ksu.onehard.megadrop.helper.ChatHelper;
-import me.d1ksu.onehard.megadrop.profile.Profile;
+import me.d1ksu.onehard.megadrop.entity.profile.Profile;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandMap;

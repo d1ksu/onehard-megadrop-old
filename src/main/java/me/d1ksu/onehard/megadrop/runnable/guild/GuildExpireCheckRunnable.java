@@ -1,8 +1,8 @@
 package me.d1ksu.onehard.megadrop.runnable.guild;
 
 import me.d1ksu.onehard.megadrop.event.GuildExpireEvent;
-import me.d1ksu.onehard.megadrop.guild.Guild;
-import me.d1ksu.onehard.megadrop.guild.GuildService;
+import me.d1ksu.onehard.megadrop.entity.guild.Guild;
+import me.d1ksu.onehard.megadrop.entity.guild.GuildService;
 import org.bukkit.Bukkit;
 
 import java.util.List;

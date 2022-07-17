@@ -8,12 +8,7 @@ import eu.okaeri.configs.OkaeriConfig;
  */
 public class GuildMainConfiguration extends OkaeriConfig {
 
-    private String guildCommand = "guild";
-    private String guildCommandAliases = "g";
 
-    public String getGuildCommand() {
-        return guildCommand;
-    }
 
 
 

@@ -1,7 +1,8 @@
-package me.d1ksu.onehard.megadrop.guild;
+package me.d1ksu.onehard.megadrop.entity.guild;
 
+import me.d1ksu.onehard.megadrop.entity.guild.Guild;
+import me.d1ksu.onehard.megadrop.entity.guild.GuildMember;
 import org.bukkit.Location;
-import org.bukkit.World;
 
 import java.util.Map;
 import java.util.Optional;

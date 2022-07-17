@@ -10,15 +10,16 @@ import me.d1ksu.onehard.megadrop.commands.guild.GuildCreateCommand;
 import me.d1ksu.onehard.megadrop.data.configuration.GuildMainConfiguration;
 import me.d1ksu.onehard.megadrop.data.configuration.GuildMessagesConfiguration;
 import me.d1ksu.onehard.megadrop.data.configuration.MainConfiguration;
-import me.d1ksu.onehard.megadrop.guild.GuildService;
+import me.d1ksu.onehard.megadrop.data.configuration.transformer.StringToComponentTransformer;
+import me.d1ksu.onehard.megadrop.entity.guild.GuildService;
 import me.d1ksu.onehard.megadrop.listener.guild.GuildExpireListener;
 import me.d1ksu.onehard.megadrop.listener.guild.block.BlockBreakListener;
 import me.d1ksu.onehard.megadrop.listener.guild.GuildCreateListener;
 import me.d1ksu.onehard.megadrop.listener.player.AsyncPlayerPreLoginListener;
 import me.d1ksu.onehard.megadrop.listener.player.PlayerQuitListener;
-import me.d1ksu.onehard.megadrop.profile.ProfileService;
+import me.d1ksu.onehard.megadrop.entity.profile.ProfileService;
 import me.d1ksu.onehard.megadrop.runnable.guild.GuildExpireCheckRunnable;
-import me.d1ksu.onehard.megadrop.runnable.guild.GuildBossBarInformationRunnable;
+import me.d1ksu.onehard.megadrop.runnable.guild.GuildBossBarRunnable;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -55,6 +56,9 @@ public class BukkitMain extends JavaPlugin {
             guildMessagesConfiguration = ConfigManager.create(GuildMessagesConfiguration.class, (it) -> {
                 it.withConfigurer(new YamlBukkitConfigurer(), new SerdesBukkit());
                 it.withBindFile(new File(this.getDataFolder(), "guildMessages.yml"));
+                it.withSerdesPack(registry -> {
+                    registry.register(new StringToComponentTransformer());
+                });
                 it.saveDefaults();
                 it.load(true);
 
@@ -91,7 +95,7 @@ public class BukkitMain extends JavaPlugin {
         };
         Arrays.stream(listeners).forEach(listener -> Bukkit.getPluginManager().registerEvents(listener, this));
 
-        GuildBossBarInformationRunnable guildInformationRunnable = new GuildBossBarInformationRunnable(guildService, profileService);
+        GuildBossBarRunnable guildInformationRunnable = new GuildBossBarRunnable(guildService, profileService);
         GuildExpireCheckRunnable guildExpireCheckRunnable = new GuildExpireCheckRunnable(guildService);
         Bukkit.getScheduler().runTaskTimer(this, guildExpireCheckRunnable, 20L, 20L);
         Bukkit.getScheduler().runTaskTimer(this, guildInformationRunnable,  0L, 20L);

@@ -1,7 +1,7 @@
 package me.d1ksu.onehard.megadrop.listener.guild.block;
 
-import me.d1ksu.onehard.megadrop.guild.Guild;
-import me.d1ksu.onehard.megadrop.guild.GuildService;
+import me.d1ksu.onehard.megadrop.entity.guild.Guild;
+import me.d1ksu.onehard.megadrop.entity.guild.GuildService;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

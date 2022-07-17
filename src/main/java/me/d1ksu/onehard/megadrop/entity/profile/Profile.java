@@ -1,4 +1,4 @@
-package me.d1ksu.onehard.megadrop.profile;
+package me.d1ksu.onehard.megadrop.entity.profile;
 
 import me.d1ksu.onehard.megadrop.commands.api.GroupType;
 import org.bukkit.Bukkit;

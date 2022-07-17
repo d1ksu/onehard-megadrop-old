@@ -1,4 +1,4 @@
-package me.d1ksu.onehard.megadrop.guild;
+package me.d1ksu.onehard.megadrop.entity.guild;
 
 
 import org.bukkit.Location;
@@ -70,6 +70,9 @@ public class GuildArea {
         this.maximumPoint = new Vector(this.centerLocation.getBlockX() + fixedSize, 256D,
                 this.centerLocation.getBlockZ() + fixedSize);
     }
+
+
+
 
 
 }

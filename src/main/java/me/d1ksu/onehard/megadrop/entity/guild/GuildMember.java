@@ -1,7 +1,6 @@
-package me.d1ksu.onehard.megadrop.guild;
+package me.d1ksu.onehard.megadrop.entity.guild;
 
 import java.util.Set;
-import java.util.UUID;
 
 /**
  * @author d1ksu

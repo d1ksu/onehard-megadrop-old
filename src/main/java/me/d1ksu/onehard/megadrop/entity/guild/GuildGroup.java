@@ -1,4 +1,4 @@
-package me.d1ksu.onehard.megadrop.guild;
+package me.d1ksu.onehard.megadrop.entity.guild;
 
 /**
  * @author d1ksu

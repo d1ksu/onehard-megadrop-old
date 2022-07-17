@@ -1,6 +1,4 @@
-package me.d1ksu.onehard.megadrop.guild;
-
-import org.bukkit.Location;
+package me.d1ksu.onehard.megadrop.entity.guild;
 
 import java.util.HashSet;
 import java.util.Set;

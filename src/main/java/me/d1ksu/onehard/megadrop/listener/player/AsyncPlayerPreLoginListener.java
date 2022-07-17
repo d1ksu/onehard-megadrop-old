@@ -1,7 +1,7 @@
 package me.d1ksu.onehard.megadrop.listener.player;
 
-import me.d1ksu.onehard.megadrop.profile.Profile;
-import me.d1ksu.onehard.megadrop.profile.ProfileService;
+import me.d1ksu.onehard.megadrop.entity.profile.Profile;
+import me.d1ksu.onehard.megadrop.entity.profile.ProfileService;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;

@@ -1,9 +1,9 @@
 package me.d1ksu.onehard.megadrop.data.configuration;
 
 import eu.okaeri.configs.OkaeriConfig;
-
-import java.util.Arrays;
-import java.util.List;
+import eu.okaeri.configs.annotation.Exclude;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 
 /**
  * @author d1ksu
@@ -11,15 +11,15 @@ import java.util.List;
  */
 public class GuildMessagesConfiguration extends OkaeriConfig {
 
-
-    private List<String> guildCommads = Arrays.asList(
-            "/zaloz",
-            "/zapros",
-            "/panel"
-    );
+    @Exclude
+    private final MiniMessage miniMessage = MiniMessage.miniMessage();
 
 
-    public List<String> getGuildCommads() {
-        return guildCommads;
+    private final Component[] guildCommands = new Component[]{this.miniMessage.deserialize("g zaloz")};
+
+    public Component[] getGuildCommands() {
+        return guildCommands;
     }
+
+
 }

@@ -1,10 +1,8 @@
 package me.d1ksu.onehard.megadrop.event;
 
-import me.d1ksu.onehard.megadrop.guild.Guild;
-import org.bukkit.entity.Player;
+import me.d1ksu.onehard.megadrop.entity.guild.Guild;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * @author d1ksu

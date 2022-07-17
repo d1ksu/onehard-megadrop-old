@@ -3,15 +3,14 @@ package me.d1ksu.onehard.megadrop.commands.guild;
 import me.d1ksu.onehard.megadrop.commands.api.Command;
 import me.d1ksu.onehard.megadrop.commands.api.CommandArgs;
 import me.d1ksu.onehard.megadrop.event.GuildCreateEvent;
-import me.d1ksu.onehard.megadrop.guild.Guild;
-import me.d1ksu.onehard.megadrop.guild.GuildArea;
-import me.d1ksu.onehard.megadrop.guild.GuildService;
+import me.d1ksu.onehard.megadrop.entity.guild.Guild;
+import me.d1ksu.onehard.megadrop.entity.guild.GuildArea;
+import me.d1ksu.onehard.megadrop.entity.guild.GuildService;
 import me.d1ksu.onehard.megadrop.helper.ChatHelper;
-import me.d1ksu.onehard.megadrop.profile.ProfileService;
+import me.d1ksu.onehard.megadrop.entity.profile.ProfileService;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.PluginManager;
 
 import java.util.concurrent.TimeUnit;
 
@@ -48,7 +47,7 @@ public class GuildCreateCommand {
                     commandArgs.getArgs(0)
                     ,commandArgs.getArgs(1)
                     ,player.getName()
-                    ,new GuildArea(centerLocation, 50)); // TODO SIZE TO CONFIG
+                    ,new GuildArea(centerLocation, 70)); // TODO SIZE TO CONFIG
 
             guild.setValidityTime(System.currentTimeMillis() + TimeUnit.DAYS.toMillis(15)); // TODO IN CONFIG
             profile.setGuild(guild.getTag());
